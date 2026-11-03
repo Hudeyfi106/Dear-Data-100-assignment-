@@ -1,6 +1,12 @@
-// I recorded 13,755 steps on 2026-11-02.
-String[] dates = { "2026-11-02" };
-int[] stepCounts = { 13755 };
+// I logged each count against its date.
+String[] dates = {
+  "2026-11-02",
+  "2026-11-01",
+  "2026-10-31",
+  "2026-10-30",
+  "2026-10-29"
+};
+int[] stepCounts = { 13755, 5686, 3085, 4099, 12642 };
 
 final int CHART_TOP = 190;
 final int CHART_BOTTOM = 465;
@@ -70,7 +76,7 @@ void draw() {
   fill(91, 103, 101);
   textAlign(LEFT, BASELINE);
   textSize(13);
-  text(dates.length + " day" + (dates.length == 1 ? "" : "s") + " recorded", 72, 555);
+  text(dates.length + " days recorded", 72, 555);
 }
 
 // I turn a step count into a bar height.
