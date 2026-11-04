@@ -4,9 +4,23 @@ String[] dates = {
   "2026-11-01",
   "2026-10-31",
   "2026-10-30",
-  "2026-10-29"
+  "2026-10-29",
+  "2026-10-28",
+  "2026-10-27",
+  "2026-10-26",
+  "2026-10-25",
+  "2026-10-24",
+  "2026-10-23",
+  "2026-10-22",
+  "2026-10-21",
+  "2026-10-20",
+  "2026-10-19"
 };
-int[] stepCounts = { 13755, 5686, 3085, 4099, 12642 };
+int[] stepCounts = {
+  13755, 5686, 3085, 4099, 12642,
+  3146, 9268, 5708, 4718, 3851,
+  4080, 9300, 4792, 4196, 4597
+};
 
 final int CHART_TOP = 190;
 final int CHART_BOTTOM = 465;
@@ -52,7 +66,7 @@ void draw() {
   }
 
   float slotWidth = (CHART_RIGHT - CHART_LEFT) / (float) dates.length;
-  float barWidth = min(100, slotWidth * 0.55);
+  float barWidth = min(100, slotWidth * 0.65);
   for (int i = 0; i < stepCounts.length; i++) {
     float x = CHART_LEFT + slotWidth * (i + 0.5);
     float barHeight = barHeightFor(stepCounts[i], scaleMaximum);
@@ -60,17 +74,17 @@ void draw() {
     noStroke();
     fill(207, 91, 59);
     rect(x - barWidth / 2, CHART_BOTTOM - barHeight,
-         barWidth, barHeight, 12);
+         barWidth, barHeight, 8);
 
     fill(36, 51, 57);
     textAlign(CENTER, BOTTOM);
-    textSize(15);
-    text(nf(stepCounts[i]), x, CHART_BOTTOM - barHeight - 10);
+    textSize(11);
+    text(nf(stepCounts[i]), x, CHART_BOTTOM - barHeight - 7);
 
     fill(91, 103, 101);
-    textSize(12);
+    textSize(10);
     textAlign(CENTER, TOP);
-    text(dates[i], x, CHART_BOTTOM + 12);
+    text(dates[i].substring(5), x, CHART_BOTTOM + 10);
   }
 
   fill(91, 103, 101);
